@@ -27,7 +27,7 @@ html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;}
 
 /* ─── NAV ─── */
-nav{
+nav#nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   background:rgba(255,255,255,0.97);
   border-bottom:1px solid rgba(19,82,138,0.1);
@@ -36,7 +36,7 @@ nav{
   backdrop-filter:blur(10px);
   transition:box-shadow .3s;
 }
-nav.scrolled{box-shadow:0 2px 24px rgba(19,82,138,0.1);}
+nav#nav.scrolled{box-shadow:0 2px 24px rgba(19,82,138,0.1);}
 .nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
 .nav-logo-icon{
   width:38px;height:38px;
@@ -469,12 +469,13 @@ footer{
   width:34px;height:34px;border-radius:50%;border:none;
   background:#f0f0f0;font-size:1rem;cursor:pointer;color:#333;
 }
-#drawer nav{display:flex;flex-direction:column;}
+#drawer nav{display:flex;flex-direction:column;overflow-y:auto;flex:1;min-height:0;}
 #drawer nav a{
   padding:1rem 1.4rem;font-family:'Sora',sans-serif;
   font-size:.95rem;font-weight:600;color:var(--gray-dark);
   text-decoration:none;border-bottom:1px solid #f0f0f0;
   transition:background .15s,color .15s;
+  text-align:center;
 }
 #drawer nav a:hover{background:var(--blue-pale);color:var(--blue);}
 .drawer-foot{margin-top:auto;padding:1.2rem;}
@@ -487,7 +488,9 @@ footer{
 @media(max-width:800px){
   .hamburger{display:flex;}
   .nav-links,.nav-cta{display:none !important;}
-  nav{height:80px;padding:0 5%;}
+  nav#nav{height:80px;padding:0 5%;}
+  #drawer{top:0;height:100vh;}
+  #drawer-backdrop{top:0;}
 }
 @media(min-width:801px){
   #drawer,#drawer-backdrop,.hamburger{display:none !important;}
@@ -534,7 +537,6 @@ footer{
     <a href="#sobre" onclick="closeDrawer()">Sobre</a>
     <a href="#servicos" onclick="closeDrawer()">Serviços</a>
     <a href="#diferenciais" onclick="closeDrawer()">Diferenciais</a>
-    <a href="#equipe" onclick="closeDrawer()">Equipe</a>
   </nav>
   <div class="drawer-foot">
     <a href="#contato" onclick="closeDrawer()">Fale Conosco</a>
@@ -553,7 +555,6 @@ footer{
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#diferenciais">Diferenciais</a></li>
-    <li><a href="#equipe">Equipe</a></li>
   </ul>
   <a href="#contato" class="nav-cta">Fale Conosco</a>
 </nav>
@@ -779,7 +780,7 @@ footer{
 </section>
 
 <!-- TEAM -->
-<section class="team" id="equipe">
+<section class="team" id="equipe" style="display:none">
   <div class="sec-head center fade-up">
     <span class="sec-tag">Nossa equipe</span>
     <h2 class="sec-title">Os fundadores da ITAVIM</h2>
@@ -928,7 +929,6 @@ footer{
       <h4>Empresa</h4>
       <ul>
         <li><a href="#sobre">Sobre nós</a></li>
-        <li><a href="#equipe">Nossa equipe</a></li>
         <li><a href="#diferenciais">Diferenciais</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
