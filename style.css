@@ -124,7 +124,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(19,82,138,0.1);}
   font-size:clamp(2.6rem,5vw,4rem);line-height:1.08;
   color:var(--white);margin-bottom:1.4rem;letter-spacing:-.5px;
 }
-.hero h1 .accent{color:var(--green);}
+.hero h1 .accent{color:var(--green) !important;}
 .hero-desc{
   color:rgba(255,255,255,.78);font-size:1.08rem;line-height:1.75;
   margin-bottom:2.5rem;max-width:530px;font-weight:300;

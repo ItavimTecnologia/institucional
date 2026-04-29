@@ -168,7 +168,7 @@ nav#nav.scrolled{box-shadow:0 2px 24px rgba(19,82,138,0.1);}
   font-size:clamp(2.6rem,5vw,4rem);line-height:1.08;
   color:var(--white);margin-bottom:1.4rem;letter-spacing:-.5px;
 }
-.hero h1 .accent{color:var(--green);}
+.hero h1 .accent{color:var(--green) !important;font-weight:800;}
 .hero-desc{
   color:rgba(255,255,255,.78);font-size:1.08rem;line-height:1.75;
   margin-bottom:2.5rem;max-width:530px;font-weight:300;
@@ -211,6 +211,7 @@ section{padding:100px 6%;}
   font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.18;
   color:var(--gray-dark);letter-spacing:-.3px;margin-bottom:1rem;
 }
+.sec-title .accent{color:var(--green) !important;}
 .sec-sub{
   color:var(--gray-mid);font-size:1rem;line-height:1.75;font-weight:300;max-width:520px;
 }
@@ -468,17 +469,23 @@ section{padding:100px 6%;}
 .float-whatsapp{background:#25d366;color:#fff;}
 .float-tacia{background:var(--blue);color:#fff;}
 #widget-toggle-btn{
-  width:60px;height:60px;border-radius:50%;
-  background:var(--gray-dark);color:#fff;border:none;
+  width:80px;height:80px;border-radius:50%;
+  background:transparent;color:#fff;border:none;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.32);
   transition:background .2s,transform .2s;
 }
-#widget-toggle-btn:hover{background:#1a2535;transform:scale(1.08);}
+#widget-toggle-btn:hover{background:rgba(74,173,82,.2);transform:scale(1.08);}
 #widget-icon-open{display:flex;}
 #widget-icon-close{display:none;}
 #widget-toggle-btn.active #widget-icon-open{display:none;}
 #widget-toggle-btn.active #widget-icon-close{display:flex;}
+#widget-icon-open{position:relative;display:flex;align-items:center;justify-content:center;}
+.vim-img{position:absolute;transition:opacity .4s ease-in-out;top:50%;left:50%;transform:translate(-50%,-50%);}
+.vim-1{opacity:1;z-index:2;}
+.vim-2{opacity:0;z-index:1;}
+#widget-toggle-btn:hover .vim-1{opacity:0;}
+#widget-toggle-btn:hover .vim-2{opacity:1;}
 
 /* ─── FOOTER ─── */
 footer{
@@ -723,7 +730,8 @@ footer{
     </div>
     <div class="about-text fade-up">
       <span class="sec-tag">Sobre a ITAVIM</span>
-      <h2 class="sec-title">Quem somos e o que nos move</h2>
+      <h2 class="sec-title">Quem somos ? </h2>
+       <h3 class="sec-title"><span class="accent">O que nos move!</span></h3>
       <p>
         Somos uma empresa de tecnologia fundada por três sócios apaixonados por inovação,
         comprometidos em oferecer soluções tecnológicas de alta qualidade para empresas
@@ -1013,16 +1021,17 @@ footer{
       </a>
     </div>
     <div class="float-item">
-      <span class="float-label">Dúvida sobre cursos</span>
-      <a href="#contato" class="float-btn float-tacia">
+      <span class="float-label">Nos siga lá </span>
+      <a href="https://www.instagram.com/itavimtec_br?igsh=NTd2aHNpanpneTA=" class="float-btn float-tacia">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        Fale com a Tácia
+        Nosso Instagram
       </a>
     </div>
   </div>
   <button id="widget-toggle-btn" data-element="button_fale-conosco" aria-label="Abrir menu de contato">
     <span id="widget-icon-open">
-      <img src="imagens/vim.png" alt="Contato" style="width:50px;height:50px;object-fit:contain;">
+      <img src="imagens/vim.png" alt="Contato" class="vim-img vim-1" style="width:50px;height:50px;object-fit:contain;">
+      <img src="imagens/vim-2.png" alt="Contato" class="vim-img vim-2" style="width:80px;height:80px;object-fit:contain;">
     </span>
     <span id="widget-icon-close">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -1065,12 +1074,15 @@ footer{
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 <span class="highlight">ITAVIM Tecnologia</span>. Todos os direitos reservados.</p>
+    <p>© <span id="year"></span> <span class="highlight">ITAVIM Tecnologia</span>. Todos os direitos reservados.</p>
     <p>Feito com dedicação para transformar negócios.</p>
   </div>
 </footer>
 
 <script>
+// Set current year in copyright
+document.getElementById('year').textContent = new Date().getFullYear();
+
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
