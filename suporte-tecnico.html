@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Suporte Técnico — ITAVIM Tecnologia</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#13528A;
+  --blue-dark:#0d3d67;
+  --blue-mid:#1a6ab0;
+  --blue-pale:#e8f1f8;
+  --green:#4aad52;
+  --green-pale:#eaf6eb;
+  --white:#ffffff;
+  --gray-bg:#f5f7fa;
+  --gray-light:#eef0f4;
+  --gray-mid:#8a95a3;
+  --gray-dark:#2c3a4a;
+  --text:#1a2535;
+}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);}
+a{text-decoration:none;color:inherit;}
+
+nav#nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);border-bottom:1px solid rgba(19,82,138,0.1);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:100px;backdrop-filter:blur(10px);transition:box-shadow .3s;}
+nav#nav.scrolled{box-shadow:0 2px 24px rgba(19,82,138,0.1);}
+.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--gray-dark);font-size:1rem;font-weight:500;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--blue);transform:scaleX(0);transition:transform .2s;border-radius:1px;}
+.nav-links a:hover{color:var(--blue);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-dropdown{position:relative;}
+.nav-dropdown>a{display:flex;align-items:center;gap:.3rem;}
+.nav-dropdown>a::after{display:none;}
+.nav-dropdown>a .dd-arrow{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--gray-dark);transition:transform .2s;flex-shrink:0;}
+.nav-dropdown:hover>a .dd-arrow{transform:rotate(180deg);}
+.nav-dropdown:hover>a{color:var(--blue);}
+.dropdown-menu{position:absolute;top:100%;left:50%;background:var(--white);border:1px solid rgba(19,82,138,0.12);border-radius:10px;box-shadow:0 8px 28px rgba(19,82,138,0.13);min-width:160px;padding:14px 0 .4rem;opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-6px);transition:opacity .2s,transform .2s;z-index:300;}
+.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0);}
+.dropdown-menu a{display:block;padding:.6rem 1.2rem;font-size:.9rem;font-weight:500;color:var(--gray-dark);text-decoration:none;transition:background .15s,color .15s;white-space:nowrap;}
+.dropdown-menu a:hover{background:var(--blue-pale);color:var(--blue);}
+.nav-cta{background:var(--blue);color:var(--white);border:none;padding:.6rem 1.5rem;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .2s,transform .15s;text-decoration:none;}
+.nav-cta:hover{background:var(--blue-dark);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;border:none;background:none;padding:6px;}
+.hamburger span{display:block;width:25px;height:2px;background:var(--blue);border-radius:2px;transition:.3s;}
+.hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+#drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:8000;opacity:0;pointer-events:none;transition:opacity .3s;}
+#drawer-backdrop.open{opacity:1;pointer-events:all;}
+#drawer{position:fixed;top:0;right:0;width:75%;max-width:280px;height:100vh;background:#fff;z-index:8001;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden;}
+#drawer.open{transform:translateX(0);}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.2rem;}
+.drawer-head span{font-family:'Sora',sans-serif;font-weight:800;font-size:1.1rem;color:var(--blue);}
+.drawer-head button{width:34px;height:34px;border-radius:50%;border:none;background:#f0f0f0;font-size:1rem;cursor:pointer;color:#333;}
+#drawer nav{display:flex;flex-direction:column;overflow-y:auto;flex:1;min-height:0;}
+#drawer nav a{padding:1rem 1.4rem;font-family:'Sora',sans-serif;font-size:.95rem;font-weight:600;color:var(--gray-dark);text-decoration:none;border-bottom:1px solid var(--gray-light);text-align:center;}
+#drawer nav a:hover{background:var(--blue-pale);color:var(--blue);}
+.drawer-foot{margin-top:auto;padding:1.2rem;}
+.drawer-foot a{display:block;text-align:center;background:var(--blue);color:#fff;padding:.8rem;border-radius:7px;font-family:'Sora',sans-serif;font-weight:600;text-decoration:none;}
+@media(max-width:800px){.hamburger{display:flex;}.nav-links,.nav-cta{display:none !important;}nav#nav{height:80px;padding:0 5%;}}
+@media(min-width:801px){#drawer,#drawer-backdrop,.hamburger{display:none !important;}}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue-mid) 100%);
+  padding:8rem 6% 5rem;color:#fff;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  border-radius:20px;padding:.35rem 1rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;margin-bottom:1.2rem;}
+.hero-icon{font-size:3.5rem;margin-bottom:1rem;}
+.hero h1{font-family:'Sora',sans-serif;font-weight:800;font-size:2.6rem;line-height:1.2;margin-bottom:1rem;}
+.hero p{font-size:1.1rem;font-weight:300;max-width:620px;margin:0 auto;opacity:.9;line-height:1.7;}
+
+/* CONTENT */
+.content{max-width:1100px;margin:0 auto;padding:4rem 6%;}
+
+.section-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1.5rem;
+  color:var(--blue);margin-bottom:1rem;margin-top:2.5rem;}
+.section-title:first-of-type{margin-top:0;}
+p.body-text{color:var(--gray-dark);font-size:.97rem;line-height:1.8;margin-bottom:1rem;font-weight:300;}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin:1.5rem 0;}
+.card{background:var(--blue-pale);border-radius:14px;padding:1.4rem 1.2rem;}
+.card-icon{font-size:1.8rem;margin-bottom:.6rem;}
+.card h3{font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem;color:var(--blue-dark);margin-bottom:.4rem;}
+.card p{font-size:.85rem;color:var(--gray-dark);line-height:1.6;font-weight:300;}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--gray-light);padding:1.1rem 0;}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-family:'Sora',sans-serif;font-weight:600;font-size:.97rem;color:var(--gray-dark);margin-bottom:.5rem;}
+.faq-a{font-size:.9rem;color:var(--gray-mid);line-height:1.7;font-weight:300;}
+
+/* CTA */
+.cta-box{background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+  border-radius:18px;padding:2.5rem;text-align:center;color:#fff;margin-top:3rem;}
+.cta-box h2{font-family:'Sora',sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:.7rem;}
+.cta-box p{font-size:.93rem;opacity:.9;margin-bottom:1.5rem;font-weight:300;}
+.cta-btn{display:inline-block;background:#fff;color:var(--blue);
+  font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;
+  padding:.75rem 1.8rem;border-radius:10px;transition:opacity .2s;}
+.cta-btn:hover{opacity:.9;}
+
+footer{text-align:center;padding:1.5rem;background:var(--gray-bg);
+  color:var(--gray-mid);font-size:.82rem;}
+
+@media(max-width:600px){
+  .hero h1{font-size:1.8rem;}
+  .content{padding:3rem 5%;}
+}
+</style>
+</head>
+<body>
+
+<div id="drawer-backdrop" onclick="closeDrawer()"></div>
+<div id="drawer">
+  <div class="drawer-head"><span>ITAVIM</span><button onclick="closeDrawer()">✕</button></div>
+  <nav>
+    <a href="index.html#sobre" onclick="closeDrawer()">Sobre</a>
+    <a href="index.html#servicos" onclick="closeDrawer()">Serviços</a>
+    <a href="index.html#diferenciais" onclick="closeDrawer()">Diferenciais</a>
+    <a href="#" onclick="toggleDrawerDept(event)" id="drawerDeptToggle" style="display:flex;align-items:center;justify-content:center;gap:.4rem;">Departamentos <span id="deptArrow" style="display:inline-block;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--gray-dark);transition:transform .2s;"></span></a>
+    <div id="drawerDeptMenu" style="display:none;flex-direction:column;">
+      <a href="suporte-tecnico.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Suporte Técnico</a>
+      <a href="infraestrutura-cloud.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Infraestrutura e Cloud</a>
+      <a href="seguranca-informacao.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Segurança da Informação</a>
+      <a href="consultoria-ti.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Consultoria em TI</a>
+      <a href="ti-advocacia.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>TI para Advocacia</a>
+      <a href="cftv-ip.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>CFTV IP</a>
+    </div>
+  </nav>
+  <div class="drawer-foot"><a href="index.html#contato" onclick="closeDrawer()">Fale Conosco</a></div>
+</div>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="imagens/logo.png" alt="ITAVIM" style="height:88px;width:auto;"></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#sobre">Sobre</a></li>
+    <li><a href="index.html#servicos">Serviços</a></li>
+    <li><a href="index.html#diferenciais">Diferenciais</a></li>
+    <li class="nav-dropdown">
+      <a href="#">Departamentos <span class="dd-arrow"></span></a>
+      <div class="dropdown-menu">
+        <a href="suporte-tecnico.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Suporte Técnico</a>
+        <a href="infraestrutura-cloud.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Infraestrutura e Cloud</a>
+        <a href="seguranca-informacao.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Segurança da Informação</a>
+        <a href="consultoria-ti.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Consultoria em TI</a>
+        <a href="ti-advocacia.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>TI para Advocacia</a>
+        <a href="cftv-ip.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>CFTV IP</a>
+      </div>
+    </li>
+  </ul>
+  <a href="index.html#contato" class="nav-cta">Fale Conosco</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Departamento</div>
+  <div class="hero-icon">🖥️</div>
+  <h1>Suporte Técnico</h1>
+  <p>Sua empresa funcionando sem interrupções. Quando algo dá errado com seus computadores ou sistemas, nossa equipe resolve — rápido e sem complicação.</p>
+</section>
+
+<div class="content">
+
+  <h2 class="section-title">O que é Suporte Técnico?</h2>
+  <p class="body-text">Imagine que o computador de um funcionário parou de funcionar no meio do expediente, a impressora não imprime ou o sistema que sua empresa usa para emitir notas fiscais deu erro. Esses são exatamente os momentos em que o Suporte Técnico entra em ação.</p>
+  <p class="body-text">É o serviço responsável por identificar, diagnosticar e resolver qualquer problema relacionado à tecnologia dentro da sua empresa — seja em computadores, notebooks, impressoras, redes de internet ou softwares.</p>
+
+  <h2 class="section-title">O que fazemos por você</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">💻</div>
+      <h3>Computadores e Notebooks</h3>
+      <p>Manutenção, limpeza, formatação e configuração de máquinas para que rodem rápido e sem travamentos.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🖨️</div>
+      <h3>Impressoras e Periféricos</h3>
+      <p>Instalação e reparo de impressoras, scanners, teclados, mouses e outros equipamentos do dia a dia.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>Redes e Internet</h3>
+      <p>Diagnóstico de lentidão, queda de conexão, configuração de roteadores e redes wi-fi corporativas.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📦</div>
+      <h3>Softwares e Sistemas</h3>
+      <p>Instalação, atualização e resolução de erros em programas e sistemas utilizados pela sua empresa.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏠</div>
+      <h3>Atendimento Remoto</h3>
+      <p>Muitos problemas são resolvidos à distância, sem precisar esperar um técnico chegar ao local.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔧</div>
+      <h3>Atendimento Presencial</h3>
+      <p>Quando necessário, nosso técnico vai até você para resolver o problema com agilidade e cuidado.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Por que sua empresa precisa disso?</h2>
+  <p class="body-text">Cada hora que um funcionário fica parado por causa de um problema de TI é dinheiro perdido. Com um suporte técnico de confiança, você garante que a sua operação não para — e que qualquer imprevisto tecnológico seja resolvido no menor tempo possível.</p>
+  <p class="body-text">Além disso, um suporte preventivo (que cuida dos equipamentos antes de quebrarem) evita surpresas desagradáveis e prolongam a vida útil dos seus dispositivos.</p>
+
+  <h2 class="section-title">Dúvidas frequentes</h2>
+  <div class="faq-item">
+    <div class="faq-q">Quanto tempo leva para resolver um problema?</div>
+    <div class="faq-a">Depende da complexidade, mas muitos problemas são resolvidos no mesmo dia — e vários à distância, em minutos, sem precisar aguardar visita técnica.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Preciso ter contrato para chamar o suporte?</div>
+    <div class="faq-a">Oferecemos tanto atendimentos avulsos quanto planos mensais de suporte. O contrato garante prioridade no atendimento e valores mais acessíveis.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Vocês atendem fora do horário comercial?</div>
+    <div class="faq-a">Sim. Para clientes com plano de suporte, oferecemos atendimento estendido para emergências que não podem esperar.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Minha empresa é pequena. Vale a pena ter suporte técnico?</div>
+    <div class="faq-a">Sim! Empresas pequenas são ainda mais impactadas por paradas inesperadas, pois cada funcionário representa uma parte significativa da operação. Um bom suporte protege o seu negócio independentemente do tamanho.</div>
+  </div>
+
+  <div class="cta-box">
+    <h2>Precisa de suporte agora?</h2>
+    <p>Nossa equipe está pronta para ajudar. Entre em contato e resolva seu problema hoje.</p>
+    <a href="index.html#contato" class="cta-btn">Fale com a gente</a>
+  </div>
+
+</div>
+
+<footer>© 2025 ITAVIM Tecnologia. Todos os direitos reservados.</footer>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});
+const hamburger=document.getElementById('hamburger');
+const drawer=document.getElementById('drawer');
+const drawerBackdrop=document.getElementById('drawer-backdrop');
+function closeDrawer(){drawer.classList.remove('open');drawerBackdrop.classList.remove('open');hamburger.classList.remove('active');document.body.style.overflow='';}
+hamburger.addEventListener('click',()=>{const o=!drawer.classList.contains('open');drawer.classList.toggle('open',o);drawerBackdrop.classList.toggle('open',o);hamburger.classList.toggle('active',o);document.body.style.overflow=o?'hidden':'';});
+function toggleDrawerDept(e){e.preventDefault();const m=document.getElementById('drawerDeptMenu');const a=document.getElementById('deptArrow');const o=m.style.display==='flex';m.style.display=o?'none':'flex';a.style.transform=o?'':'rotate(180deg)';}
+</script>
+</body>
+</html>
