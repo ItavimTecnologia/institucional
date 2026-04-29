@@ -441,7 +441,8 @@ section{padding:100px 6%;}
 
 /* ─── FLOAT WIDGET ─── */
 #float-widget{
-  position:fixed;bottom:28px;right:28px;z-index:7999;
+  position:fixed;bottom:28px;right:28px;left:auto;z-index:7999;
+  width:fit-content;
   display:flex;flex-direction:column;align-items:flex-end;gap:.85rem;
   transition:opacity .2s,visibility .2s;
 }
@@ -592,7 +593,7 @@ footer{
   nav#nav{height:80px;padding:0 5%;}
   #drawer{top:0;height:100vh;height:100dvh;}
   #drawer-backdrop{top:0;}
-  #float-widget{right:auto;left:20px;}
+  #float-widget{right:auto;left:20px;align-items:flex-start;}
   #float-menu{align-items:flex-start;}
   .float-item{flex-direction:row-reverse;}
 }
