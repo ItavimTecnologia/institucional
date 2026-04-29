@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<meta name="robots" content="index, follow"/>
 <title>ITAVIM Tecnologia</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
 <style>
@@ -641,12 +643,12 @@ footer{
     <a href="#diferenciais" onclick="closeDrawer()">Diferenciais</a>
     <a href="#" onclick="toggleDrawerDept(event)" id="drawerDeptToggle" style="display:flex;align-items:center;justify-content:center;gap:.4rem;">Departamentos <span id="deptArrow" style="display:inline-block;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--gray-dark);transition:transform .2s;"></span></a>
     <div id="drawerDeptMenu" style="display:none;flex-direction:column;">
-      <a href="suporte-tecnico.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Suporte Técnico</a>
-      <a href="infraestrutura-cloud.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Infraestrutura e Cloud</a>
-      <a href="seguranca-informacao.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Segurança da Informação</a>
-      <a href="consultoria-ti.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Consultoria em TI</a>
-      <a href="ti-advocacia.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>TI para Advocacia</a>
-      <a href="cftv-ip.html" target="_blank" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>CFTV IP</a>
+      <a href="suporte-tecnico.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Suporte Técnico</a>
+      <a href="infraestrutura-cloud.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Infraestrutura e Cloud</a>
+      <a href="seguranca-informacao.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Segurança da Informação</a>
+      <a href="consultoria-ti.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Consultoria em TI</a>
+      <a href="ti-advocacia.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>TI para Advocacia</a>
+      <a href="cftv-ip.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>CFTV IP</a>
     </div>
   </nav>
   <div class="drawer-foot">
@@ -669,12 +671,12 @@ footer{
     <li class="nav-dropdown">
       <a href="#">Departamentos <span class="dd-arrow"></span></a>
       <div class="dropdown-menu">
-        <a href="suporte-tecnico.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Suporte Técnico</a>
-        <a href="infraestrutura-cloud.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Infraestrutura e Cloud</a>
-        <a href="seguranca-informacao.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Segurança da Informação</a>
-        <a href="consultoria-ti.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Consultoria em TI</a>
-        <a href="ti-advocacia.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>TI para Advocacia</a>
-        <a href="cftv-ip.html" target="_blank"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>CFTV IP</a>
+        <a href="suporte-tecnico.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Suporte Técnico</a>
+        <a href="infraestrutura-cloud.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Infraestrutura e Cloud</a>
+        <a href="seguranca-informacao.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Segurança da Informação</a>
+        <a href="consultoria-ti.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Consultoria em TI</a>
+        <a href="ti-advocacia.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>TI para Advocacia</a>
+        <a href="cftv-ip.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>CFTV IP</a>
       </div>
     </li>
   </ul>
@@ -751,12 +753,12 @@ footer{
     <div class="about-text fade-up">
       <span class="sec-tag">Sobre a ITAVIM</span>
       <h2 class="sec-title">Quem somos ? </h2>
-       <h3 class="sec-title"><span class="accent">O que nos move!</span></h3>
       <p>
         Somos uma empresa de tecnologia fundada por três sócios apaixonados por inovação,
         comprometidos em oferecer soluções tecnológicas de alta qualidade para empresas
         que querem crescer com segurança e eficiência.
       </p>
+      <h3 class="sec-title"><span class="accent">O que nos move!</span></h3>
       <p>
         Nossa missão é ser o parceiro tecnológico de confiança dos nossos clientes,
         entregando serviços personalizados com agilidade, profissionalismo e
@@ -989,21 +991,21 @@ footer{
         <div class="form-row">
           <div class="form-group">
             <label for="nome">Nome completo <span class="required-mark">*</span></label>
-            <input id="nome" name="nome" type="text" placeholder="Seu nome" required/>
+            <input id="nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required/>
           </div>
           <div class="form-group">
             <label for="empresa">Empresa</label>
-            <input id="empresa" name="empresa" type="text" placeholder="Nome da empresa"/>
+            <input id="empresa" name="empresa" type="text" placeholder="Nome da empresa" autocomplete="organization"/>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="email">E-mail <span class="required-mark">*</span></label>
-            <input id="email" name="email" type="email" placeholder="seu@email.com" required/>
+            <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required/>
           </div>
           <div class="form-group">
             <label for="telefone">Telefone <span class="required-mark">*</span></label>
-            <input id="telefone" name="telefone" type="tel" placeholder="(XX) XXXXX-XXXX" required/>
+            <input id="telefone" name="telefone" type="tel" placeholder="(XX) XXXXX-XXXX" autocomplete="tel" required/>
           </div>
         </div>
         <div class="form-group">
