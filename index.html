@@ -481,7 +481,7 @@ section{padding:100px 6%;}
 #widget-toggle-btn.active #widget-icon-open{display:none;}
 #widget-toggle-btn.active #widget-icon-close{display:flex;}
 #widget-icon-open{position:relative;display:flex;align-items:center;justify-content:center;}
-.vim-img{position:absolute;transition:opacity .4s ease-in-out;top:50%;left:50%;transform:translate(-50%,-50%);}
+.vim-img{position:absolute;transition:opacity .4s ease-in-out;top:50%;left:50%;transform:translate(-50%,-50%);mix-blend-mode:multiply;}
 .vim-1{opacity:1;z-index:2;}
 .vim-2{opacity:0;z-index:1;}
 #widget-toggle-btn:hover .vim-1{opacity:0;}
@@ -565,10 +565,15 @@ footer{
   text-align:center;
 }
 #drawer nav a:hover{background:var(--blue-pale);color:var(--blue);}
-.drawer-foot{margin-top:auto;padding:1.2rem;}
+.drawer-foot{
+  flex-shrink:0;
+  padding:1rem 1.2rem;
+  padding-bottom:max(1rem, env(safe-area-inset-bottom));
+  border-top:1px solid #f0f0f0;
+}
 .drawer-foot a{
   display:block;text-align:center;background:var(--blue);color:#fff;
-  padding:.8rem;border-radius:7px;font-family:'Sora',sans-serif;
+  padding:.75rem;border-radius:7px;font-family:'Sora',sans-serif;
   font-weight:600;font-size:.9rem;text-decoration:none;
 }
 
