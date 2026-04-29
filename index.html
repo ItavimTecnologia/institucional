@@ -439,9 +439,11 @@ section{padding:100px 6%;}
 
 /* ─── FLOAT WIDGET ─── */
 #float-widget{
-  position:fixed;bottom:28px;right:28px;z-index:9999;
+  position:fixed;bottom:28px;right:28px;z-index:7999;
   display:flex;flex-direction:column;align-items:flex-end;gap:.85rem;
+  transition:opacity .2s,visibility .2s;
 }
+#float-widget.hidden{opacity:0;visibility:hidden;pointer-events:none;}
 #float-menu{
   display:flex;flex-direction:column;align-items:flex-end;gap:.7rem;
   opacity:0;pointer-events:none;
@@ -1116,11 +1118,14 @@ const hamburger = document.getElementById('hamburger');
 const drawer = document.getElementById('drawer');
 const drawerBackdrop = document.getElementById('drawer-backdrop');
 
+const floatWidget = document.getElementById('float-widget');
+
 function closeDrawer() {
   drawer.classList.remove('open');
   drawerBackdrop.classList.remove('open');
   hamburger.classList.remove('active');
   document.body.style.overflow = '';
+  floatWidget.classList.remove('hidden');
 }
 
 hamburger.addEventListener('click', () => {
@@ -1129,6 +1134,7 @@ hamburger.addEventListener('click', () => {
   drawerBackdrop.classList.toggle('open', opening);
   hamburger.classList.toggle('active', opening);
   document.body.style.overflow = opening ? 'hidden' : '';
+  floatWidget.classList.toggle('hidden', opening);
 });
 
 function toggleDrawerDept(e) {
