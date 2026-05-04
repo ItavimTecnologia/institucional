@@ -3,10 +3,9 @@ module.exports = {
     {
       name: 'itavim',
       script: 'serve',
-      args: '-s . -l 3002',
+      args: '-s .',
       env: {
-        PM2_SERVE_PATH: '.',
-        PM2_SERVE_PORT: 3002,
+        PORT: 3002,
       },
     },
   ],
