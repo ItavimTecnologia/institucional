@@ -10,19 +10,12 @@ A ITAVIM oferece serviços de suporte técnico, infraestrutura em cloud, seguran
 
 - HTML5, CSS3 e JavaScript puro
 - Fontes: [Sora](https://fonts.google.com/specimen/Sora) e [DM Sans](https://fonts.google.com/specimen/DM+Sans) via Google Fonts
-- Deploy via [Surge.sh](https://surge.sh)
 
-## Deploy
+## Produção
 
-O site está publicado em: **[itavim.surge.sh](https://itavim.surge.sh)**
-
-Para atualizar o deploy:
-
-```bash
-surge . itavim.surge.sh
-```
+O site está publicado em: **[itavim.com.br](https://itavim.com.br)**
 
 ## Contato
 
-- E-mail: contato@itavim.com.br
+- E-mail: itavimtecnologia@gmail.com
 - WhatsApp: (21) 97449-0036
