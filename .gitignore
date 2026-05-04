@@ -12,3 +12,6 @@ desktop.ini
 # Temporários
 *.tmp
 *.log
+
+# Claude Code (pode conter tokens e credenciais)
+.claude/
