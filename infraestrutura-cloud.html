@@ -3,134 +3,114 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="imagens/nuvem.png" type="image/png"/>
 <title>Infraestrutura e Cloud — ITAVIM Tecnologia</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --blue:#13528A;
-  --blue-dark:#0d3d67;
-  --blue-mid:#1a6ab0;
-  --blue-pale:#e8f1f8;
-  --green:#4aad52;
-  --green-dark:#3a8e41;
-  --green-pale:#eaf6eb;
-  --white:#ffffff;
-  --gray-bg:#f5f7fa;
-  --gray-light:#eef0f4;
-  --gray-mid:#8a95a3;
-  --gray-dark:#2c3a4a;
-  --text:#1a2535;
-}
-body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;color:#1a2535;background:#ffffff;}
 a{text-decoration:none;color:inherit;}
-
-nav#nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);border-bottom:1px solid rgba(19,82,138,0.1);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:100px;backdrop-filter:blur(10px);transition:box-shadow .3s;}
-nav#nav.scrolled{box-shadow:0 2px 24px rgba(19,82,138,0.1);}
-.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
+:root{--accent:#16a34a;--accent-dim:rgba(22,163,74,.1);--accent-glow:rgba(22,163,74,.22);--bg:#ffffff;--bg2:#f4f8fd;--bg3:#e8f0fb;--border:rgba(0,0,0,.09);--text:#1a2535;--muted:rgba(26,37,53,.52);--dim:rgba(26,37,53,.72);}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--accent-dim);border-radius:3px;}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}.fade-up.visible{opacity:1;transform:none;}
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:88px;background:transparent;transition:background .35s,border-color .35s;border-bottom:1px solid transparent;}
+#nav.scrolled{background:rgba(255,255,255,.96);border-bottom-color:var(--border);backdrop-filter:blur(16px);box-shadow:0 1px 24px rgba(0,0,0,.08);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
 .nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{text-decoration:none;color:var(--gray-dark);font-size:1rem;font-weight:500;transition:color .2s;position:relative;}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--blue);transform:scaleX(0);transition:transform .2s;border-radius:1px;}
-.nav-links a:hover{color:var(--blue);}
-.nav-links a:hover::after{transform:scaleX(1);}
-.nav-dropdown{position:relative;}
-.nav-dropdown>a{display:flex;align-items:center;gap:.3rem;}
-.nav-dropdown>a::after{display:none;}
-.nav-dropdown>a .dd-arrow{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--gray-dark);transition:transform .2s;flex-shrink:0;}
-.nav-dropdown:hover>a .dd-arrow{transform:rotate(180deg);}
-.nav-dropdown:hover>a{color:var(--blue);}
-.dropdown-menu{position:absolute;top:100%;left:50%;background:var(--white);border:1px solid rgba(19,82,138,0.12);border-radius:10px;box-shadow:0 8px 28px rgba(19,82,138,0.13);min-width:160px;padding:14px 0 .4rem;opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-6px);transition:opacity .2s,transform .2s;z-index:300;}
+.nav-links a{text-decoration:none;color:var(--dim);font-size:.9rem;font-weight:500;letter-spacing:.3px;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--accent);transform:scaleX(0);transition:transform .2s;}
+.nav-links a:hover{color:var(--text);}.nav-links a:hover::after{transform:scaleX(1);}
+.nav-dropdown{position:relative;}.nav-dropdown>a{display:flex;align-items:center;gap:.35rem;}.nav-dropdown>a::after{display:none;}
+.dd-arrow{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--muted);transition:transform .2s;}
+.nav-dropdown:hover>a .dd-arrow{transform:rotate(180deg);}.nav-dropdown:hover>a{color:var(--text);}
+.dropdown-menu{position:absolute;top:100%;left:50%;background:var(--bg2);border:1px solid var(--border);border-radius:10px;box-shadow:0 16px 48px rgba(0,0,0,.6);min-width:190px;padding:10px 0 8px;opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-6px);transition:opacity .2s,transform .2s;z-index:300;}
 .nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0);}
-.dropdown-menu a{display:block;padding:.6rem 1.2rem;font-size:.9rem;font-weight:500;color:var(--gray-dark);text-decoration:none;transition:background .15s,color .15s;white-space:nowrap;}
-.dropdown-menu a:hover{background:var(--blue-pale);color:var(--blue);}
-.nav-cta{background:var(--blue);color:var(--white);border:none;padding:.6rem 1.5rem;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .2s,transform .15s;text-decoration:none;}
-.nav-cta:hover{background:var(--blue-dark);transform:translateY(-1px);}
+.dropdown-menu a{display:flex;align-items:center;gap:.6rem;padding:.6rem 1.2rem;font-size:.85rem;font-weight:500;color:var(--dim);transition:color .15s,background .15s;white-space:nowrap;}
+.dropdown-menu a:hover{background:var(--accent-dim);color:var(--accent);}
+.dd-dot{display:inline-block;width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.nav-cta{background:var(--accent);color:#fff;padding:.55rem 1.4rem;border-radius:6px;font-family:'Barlow',sans-serif;font-weight:600;font-size:.88rem;letter-spacing:.3px;cursor:pointer;transition:box-shadow .25s,transform .2s;}
+.nav-cta:hover{box-shadow:0 0 22px var(--accent-glow);transform:translateY(-1px);}
 .hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;border:none;background:none;padding:6px;}
-.hamburger span{display:block;width:25px;height:2px;background:var(--blue);border-radius:2px;transition:.3s;}
+.hamburger span{display:block;width:25px;height:2px;background:var(--accent);border-radius:2px;transition:.3s;}
 .hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg);}
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
-#drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:8000;opacity:0;pointer-events:none;transition:opacity .3s;}
+#drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:8000;opacity:0;pointer-events:none;transition:opacity .3s;}
 #drawer-backdrop.open{opacity:1;pointer-events:all;}
-#drawer{position:fixed;top:0;right:0;width:75%;max-width:280px;height:100vh;background:#fff;z-index:8001;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden;}
+#drawer{position:fixed;top:0;right:0;width:75%;max-width:280px;height:100vh;height:100dvh;background:var(--bg2);z-index:8001;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;box-shadow:-8px 0 40px rgba(0,0,0,.5);border-left:1px solid var(--border);overflow:hidden;}
 #drawer.open{transform:translateX(0);}
-.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.2rem;}
-.drawer-head span{font-family:'Sora',sans-serif;font-weight:800;font-size:1.1rem;color:var(--blue);}
-.drawer-head button{width:34px;height:34px;border-radius:50%;border:none;background:#f0f0f0;font-size:1rem;cursor:pointer;color:#333;}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:1.2rem;}
+.drawer-head button{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--bg3);font-size:1rem;cursor:pointer;color:var(--dim);}
 #drawer nav{display:flex;flex-direction:column;overflow-y:auto;flex:1;min-height:0;}
-#drawer nav a{padding:1rem 1.4rem;font-family:'Sora',sans-serif;font-size:.95rem;font-weight:600;color:var(--gray-dark);text-decoration:none;border-bottom:1px solid var(--gray-light);text-align:center;}
-#drawer nav a:hover{background:var(--blue-pale);color:var(--blue);}
-.drawer-foot{margin-top:auto;padding:1.2rem;}
-.drawer-foot a{display:block;text-align:center;background:var(--blue);color:#fff;padding:.8rem;border-radius:7px;font-family:'Sora',sans-serif;font-weight:600;text-decoration:none;}
-@media(max-width:800px){.hamburger{display:flex;}.nav-links,.nav-cta{display:none !important;}nav#nav{height:80px;padding:0 5%;}}
-@media(min-width:801px){#drawer,#drawer-backdrop,.hamburger{display:none !important;}}
-
-.hero{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 100%);
-  padding:8rem 6% 5rem;color:#fff;display:flex;flex-direction:column;align-items:center;text-align:center;}
-.hero-tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
-  border-radius:20px;padding:.35rem 1rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;
-  text-transform:uppercase;margin-bottom:1.2rem;}
-.hero-icon{font-size:3.5rem;margin-bottom:1rem;}
-.hero h1{font-family:'Sora',sans-serif;font-weight:800;font-size:2.6rem;line-height:1.2;margin-bottom:1rem;}
-.hero p{font-size:1.1rem;font-weight:300;max-width:620px;margin:0 auto;opacity:.9;line-height:1.7;}
-
-.content{max-width:1100px;margin:0 auto;padding:4rem 6%;}
-.section-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1.5rem;
-  color:var(--green-dark);margin-bottom:1rem;margin-top:2.5rem;}
+#drawer nav a{padding:1rem 1.4rem;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--border);transition:background .15s,color .15s;text-align:center;}
+#drawer nav a:hover{background:var(--accent-dim);color:var(--accent);}
+.drawer-foot{flex-shrink:0;padding:1rem 1.2rem;padding-bottom:max(1rem,env(safe-area-inset-bottom));border-top:1px solid var(--border);}
+.drawer-foot a{display:block;text-align:center;background:var(--accent);color:#fff;padding:.75rem;border-radius:7px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.5px;text-transform:uppercase;}
+.hero{padding:9rem 6% 5.5rem;color:var(--text);display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden;background:var(--bg);}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(var(--accent-dim) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;}
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;border-radius:50%;background:radial-gradient(ellipse,var(--accent-glow) 0%,transparent 65%);pointer-events:none;}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent);border-radius:30px;padding:.38rem 1rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;position:relative;z-index:1;}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.hero-icon{font-size:3.2rem;margin-bottom:1.2rem;position:relative;z-index:1;}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(2.8rem,6vw,4.5rem);line-height:.96;letter-spacing:.5px;text-transform:uppercase;color:var(--text);margin-bottom:1.2rem;position:relative;z-index:1;}
+.hero p{font-size:1.05rem;font-weight:300;max-width:600px;color:var(--dim);line-height:1.8;position:relative;z-index:1;}
+.content{max-width:1100px;margin:0 auto;padding:5rem 6%;}
+.section-title{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(1.4rem,2.5vw,1.8rem);letter-spacing:.5px;color:var(--accent);margin-bottom:1rem;margin-top:3rem;}
 .section-title:first-of-type{margin-top:0;}
-p.body-text{color:var(--gray-dark);font-size:.97rem;line-height:1.8;margin-bottom:1rem;font-weight:300;}
-
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin:1.5rem 0;}
-.card{background:var(--green-pale);border-radius:14px;padding:1.4rem 1.2rem;}
-.card-icon{font-size:1.8rem;margin-bottom:.6rem;}
-.card h3{font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem;color:var(--green-dark);margin-bottom:.4rem;}
-.card p{font-size:.85rem;color:var(--gray-dark);line-height:1.6;font-weight:300;}
-
-.faq-item{border-bottom:1px solid var(--gray-light);padding:1.1rem 0;}
+p.body-text{color:var(--dim);font-size:.97rem;line-height:1.85;margin-bottom:1rem;font-weight:300;}
+p.body-text strong{color:var(--text);font-weight:600;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin:1.5rem 0;}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.3rem;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;}
+.card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity .2s;}
+.card:hover{border-color:var(--accent-glow);transform:translateY(-3px);}.card:hover::after{opacity:1;}
+.card-icon{font-size:1.8rem;margin-bottom:.7rem;}
+.card h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.3px;text-transform:uppercase;color:var(--text);margin-bottom:.5rem;}
+.card p{font-size:.85rem;color:var(--muted);line-height:1.65;font-weight:300;}
+.faq-item{border-bottom:1px solid var(--border);padding:1.2rem 0;}
 .faq-item:last-child{border-bottom:none;}
-.faq-q{font-family:'Sora',sans-serif;font-weight:600;font-size:.97rem;color:var(--gray-dark);margin-bottom:.5rem;}
-.faq-a{font-size:.9rem;color:var(--gray-mid);line-height:1.7;font-weight:300;}
-
-.cta-box{background:linear-gradient(135deg,var(--green-dark),var(--green));
-  border-radius:18px;padding:2.5rem;text-align:center;color:#fff;margin-top:3rem;}
-.cta-box h2{font-family:'Sora',sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:.7rem;}
-.cta-box p{font-size:.93rem;opacity:.9;margin-bottom:1.5rem;font-weight:300;}
-.cta-btn{display:inline-block;background:#fff;color:var(--green-dark);
-  font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;
-  padding:.75rem 1.8rem;border-radius:10px;transition:opacity .2s;}
-.cta-btn:hover{opacity:.9;}
-
-footer{text-align:center;padding:1.5rem;background:var(--gray-bg);color:var(--gray-mid);font-size:.82rem;}
-
-@media(max-width:600px){
-  .hero h1{font-size:1.8rem;}
-  .content{padding:3rem 5%;}
-}
+.faq-q{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.3px;text-transform:uppercase;color:var(--text);margin-bottom:.5rem;}
+.faq-a{font-size:.9rem;color:var(--muted);line-height:1.72;font-weight:300;}
+.cta-box{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:2.8rem;text-align:center;margin-top:3.5rem;position:relative;overflow:hidden;}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);}
+.cta-box::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,var(--accent-glow) 0%,transparent 65%);pointer-events:none;}
+.cta-box h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:.5px;text-transform:uppercase;color:var(--text);margin-bottom:.8rem;position:relative;z-index:1;}
+.cta-box p{font-size:.93rem;color:var(--dim);margin-bottom:1.8rem;font-weight:300;position:relative;z-index:1;}
+.cta-btn{display:inline-block;background:var(--accent);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.5px;text-transform:uppercase;padding:.8rem 2.2rem;border-radius:8px;transition:box-shadow .25s,transform .2s;position:relative;z-index:1;}
+.cta-btn:hover{box-shadow:0 0 28px var(--accent-glow);transform:translateY(-1px);}
+footer{text-align:center;padding:2rem 6%;background:var(--bg2);border-top:1px solid var(--border);color:var(--muted);font-size:.82rem;}
+footer span{color:var(--accent);}
+@media(max-width:800px){.hamburger{display:flex;}.nav-links,.nav-cta{display:none !important;}#nav{height:72px;padding:0 5%;}}
+@media(min-width:801px){#drawer,#drawer-backdrop,.hamburger{display:none !important;}}
+@media(max-width:600px){.hero{padding:7rem 5% 4rem;}.content{padding:3.5rem 5%;}}
 </style>
 </head>
 <body>
-
 <div id="drawer-backdrop" onclick="closeDrawer()"></div>
 <div id="drawer">
-  <div class="drawer-head"><span>ITAVIM</span><button onclick="closeDrawer()">✕</button></div>
+  <div class="drawer-head">
+    <img src="imagens/nuvem.png" alt="ITAVIM" style="height:36px;width:auto;">
+    <button onclick="closeDrawer()">✕</button>
+  </div>
   <nav>
     <a href="index.html#sobre" onclick="closeDrawer()">Sobre</a>
     <a href="index.html#servicos" onclick="closeDrawer()">Serviços</a>
     <a href="index.html#diferenciais" onclick="closeDrawer()">Diferenciais</a>
-    <a href="#" onclick="toggleDrawerDept(event)" id="drawerDeptToggle" style="display:flex;align-items:center;justify-content:center;gap:.4rem;">Departamentos <span id="deptArrow" style="display:inline-block;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--gray-dark);transition:transform .2s;"></span></a>
+    <a href="#" onclick="toggleDrawerDept(event)" id="drawerDeptToggle" style="display:flex;align-items:center;justify-content:center;gap:.4rem;">Departamentos <span id="deptArrow" style="display:inline-block;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid rgba(221,238,255,.4);transition:transform .2s;"></span></a>
     <div id="drawerDeptMenu" style="display:none;flex-direction:column;">
-      <a href="suporte-tecnico.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Suporte Técnico</a>
-      <a href="infraestrutura-cloud.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Infraestrutura e Cloud</a>
-      <a href="seguranca-informacao.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Segurança da Informação</a>
-      <a href="consultoria-ti.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Consultoria em TI</a>
-      <a href="ti-advocacia.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>TI para Advocacia</a>
-      <a href="cftv-ip.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:#f7f9fc;font-size:.88rem;padding:.8rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>CFTV IP</a>
+      <a href="suporte-tecnico.html" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:#00d2e6;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Suporte Técnico</a>
+      <a href="infraestrutura-cloud.html" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:#22c55e;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Infraestrutura e Cloud</a>
+      <a href="seguranca-informacao.html" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:#f87171;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Segurança da Informação</a>
+      <a href="consultoria-ti.html" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:#a78bfa;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Consultoria em TI</a>
+      <a href="ti-advocacia.html" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:#fbbf24;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>TI para Advocacia</a>
+      <a href="cftv-ip.html" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:#60a5fa;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>CFTV IP</a>
     </div>
   </nav>
   <div class="drawer-foot"><a href="index.html#contato" onclick="closeDrawer()">Fale Conosco</a></div>
 </div>
 <nav id="nav">
-  <a href="index.html" class="nav-logo"><img src="imagens/logo.png" alt="ITAVIM" style="height:88px;width:auto;"></a>
+  <a href="index.html" class="nav-logo"><img src="imagens/logo.png" alt="ITAVIM" style="height:78px;width:auto;"></a>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html#sobre">Sobre</a></li>
@@ -139,12 +119,12 @@ footer{text-align:center;padding:1.5rem;background:var(--gray-bg);color:var(--gr
     <li class="nav-dropdown">
       <a href="#">Departamentos <span class="dd-arrow"></span></a>
       <div class="dropdown-menu">
-        <a href="suporte-tecnico.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Suporte Técnico</a>
-        <a href="infraestrutura-cloud.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Infraestrutura e Cloud</a>
-        <a href="seguranca-informacao.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Segurança da Informação</a>
-        <a href="consultoria-ti.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>Consultoria em TI</a>
-        <a href="ti-advocacia.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#13528A;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>TI para Advocacia</a>
-        <a href="cftv-ip.html" target="_blank" rel="noopener noreferrer"><span style="display:inline-block;width:12px;height:2px;background:#4aad52;margin-right:8px;vertical-align:middle;border-radius:1px;"></span>CFTV IP</a>
+        <a href="suporte-tecnico.html"><span class="dd-dot" style="background:#00d2e6;"></span>Suporte Técnico</a>
+        <a href="infraestrutura-cloud.html"><span class="dd-dot" style="background:#22c55e;"></span>Infraestrutura e Cloud</a>
+        <a href="seguranca-informacao.html"><span class="dd-dot" style="background:#f87171;"></span>Segurança da Informação</a>
+        <a href="consultoria-ti.html"><span class="dd-dot" style="background:#a78bfa;"></span>Consultoria em TI</a>
+        <a href="ti-advocacia.html"><span class="dd-dot" style="background:#fbbf24;"></span>TI para Advocacia</a>
+        <a href="cftv-ip.html"><span class="dd-dot" style="background:#60a5fa;"></span>CFTV IP</a>
       </div>
     </li>
   </ul>
@@ -152,87 +132,56 @@ footer{text-align:center;padding:1.5rem;background:var(--gray-bg);color:var(--gr
 </nav>
 
 <section class="hero">
-  <div class="hero-tag">Departamento</div>
+  <div class="hero-glow"></div>
+  <div class="hero-tag"><span class="hero-tag-dot"></span>Departamento</div>
   <div class="hero-icon">☁️</div>
   <h1>Infraestrutura e Cloud</h1>
   <p>A base tecnológica sólida que sua empresa precisa para crescer. Menos custos com equipamento físico, mais agilidade e segurança com a nuvem.</p>
 </section>
 
 <div class="content">
+  <h2 class="section-title fade-up">O que é Infraestrutura de TI?</h2>
+  <p class="body-text fade-up">Toda empresa que usa tecnologia precisa de uma estrutura por baixo: servidores para guardar dados, redes para conectar os computadores, sistemas para fazer tudo funcionar junto. Isso é infraestrutura de TI — a fundação invisível que sustenta o seu negócio.</p>
+  <p class="body-text fade-up">Quando essa base está bem montada, tudo funciona de forma rápida, segura e confiável. Quando está mal configurada, sua empresa sofre lentidão, quedas, perda de dados e dores de cabeça constantes.</p>
 
-  <h2 class="section-title">O que é Infraestrutura de TI?</h2>
-  <p class="body-text">Toda empresa que usa tecnologia precisa de uma estrutura por baixo: servidores para guardar dados, redes para conectar os computadores, sistemas para fazer tudo funcionar junto. Isso é infraestrutura de TI — a fundação invisível que sustenta o seu negócio.</p>
-  <p class="body-text">Quando essa base está bem montada, tudo funciona de forma rápida, segura e confiável. Quando está mal configurada, sua empresa sofre lentidão, quedas, perda de dados e dores de cabeça constantes.</p>
+  <h2 class="section-title fade-up">E a "Nuvem" (Cloud)?</h2>
+  <p class="body-text fade-up">Você já usou o Google Drive para guardar um arquivo? Então já usou a nuvem. Em vez de salvar dados num servidor físico dentro da sua empresa (que pode quebrar, ser roubado ou destruído em um incêndio), a nuvem guarda tudo em servidores remotos de alta segurança, acessíveis de qualquer lugar com internet.</p>
+  <p class="body-text fade-up">Para empresas, isso significa: seus arquivos e sistemas ficam disponíveis 24 horas por dia, de qualquer dispositivo, com backup automático e altíssima confiabilidade.</p>
 
-  <h2 class="section-title">E a "Nuvem" (Cloud)?</h2>
-  <p class="body-text">Você já usou o Google Drive para guardar um arquivo? Então já usou a nuvem. Em vez de salvar dados num servidor físico dentro da sua empresa (que pode quebrar, ser roubado ou destruído em um incêndio), a nuvem guarda tudo em servidores remotos de alta segurança, acessíveis de qualquer lugar com internet.</p>
-  <p class="body-text">Para empresas, isso significa: seus arquivos e sistemas ficam disponíveis 24 horas por dia, de qualquer dispositivo, com backup automático e altíssima confiabilidade.</p>
-
-  <h2 class="section-title">O que fazemos por você</h2>
+  <h2 class="section-title fade-up">O que fazemos por você</h2>
   <div class="cards">
-    <div class="card">
-      <div class="card-icon">🖧</div>
-      <h3>Redes Corporativas</h3>
-      <p>Projeto e instalação de redes cabeadas e Wi-Fi para que todos os dispositivos da empresa se comuniquem com rapidez.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🗄️</div>
-      <h3>Servidores</h3>
-      <p>Configuração e manutenção de servidores físicos ou virtuais para centralizar dados e sistemas da empresa.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">☁️</div>
-      <h3>Migração para a Nuvem</h3>
-      <p>Transferimos seus sistemas e arquivos para a nuvem (AWS, Azure, Google Cloud) de forma segura e sem interrupção.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">💾</div>
-      <h3>Backup Automatizado</h3>
-      <p>Cópias de segurança automáticas dos seus dados para que nenhuma informação importante se perca.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">📈</div>
-      <h3>Escalabilidade</h3>
-      <p>Infraestrutura que cresce junto com sua empresa, sem necessidade de grandes investimentos de uma vez só.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🔍</div>
-      <h3>Monitoramento</h3>
-      <p>Acompanhamento contínuo dos servidores e redes para identificar e resolver problemas antes que afetem sua operação.</p>
-    </div>
+    <div class="card fade-up"><div class="card-icon">🖧</div><h3>Redes Corporativas</h3><p>Projeto e instalação de redes cabeadas e Wi-Fi para que todos os dispositivos da empresa se comuniquem com rapidez.</p></div>
+    <div class="card fade-up"><div class="card-icon">🗄️</div><h3>Servidores</h3><p>Configuração e manutenção de servidores físicos ou virtuais para centralizar dados e sistemas da empresa.</p></div>
+    <div class="card fade-up"><div class="card-icon">☁️</div><h3>Migração para a Nuvem</h3><p>Transferimos seus sistemas e arquivos para a nuvem (AWS, Azure, Google Cloud) de forma segura e sem interrupção.</p></div>
+    <div class="card fade-up"><div class="card-icon">💾</div><h3>Backup Automatizado</h3><p>Cópias de segurança automáticas dos seus dados para que nenhuma informação importante se perca.</p></div>
+    <div class="card fade-up"><div class="card-icon">📈</div><h3>Escalabilidade</h3><p>Infraestrutura que cresce junto com sua empresa, sem necessidade de grandes investimentos de uma vez só.</p></div>
+    <div class="card fade-up"><div class="card-icon">🔍</div><h3>Monitoramento</h3><p>Acompanhamento contínuo dos servidores e redes para identificar e resolver problemas antes que afetem sua operação.</p></div>
   </div>
 
-  <h2 class="section-title">Vantagens reais para sua empresa</h2>
-  <p class="body-text"><strong>Redução de custos:</strong> com a nuvem, você paga apenas pelo que usa, eliminando gastos com equipamentos físicos caros que ficam obsoletos.</p>
-  <p class="body-text"><strong>Trabalho remoto facilitado:</strong> seus colaboradores podem acessar sistemas e arquivos de casa ou de qualquer lugar, com total segurança.</p>
-  <p class="body-text"><strong>Continuidade do negócio:</strong> mesmo que aconteça algum imprevisto (falta de energia, desastre, falha de hardware), seus dados estão seguros e acessíveis.</p>
+  <h2 class="section-title fade-up">Vantagens reais para sua empresa</h2>
+  <p class="body-text fade-up"><strong>Redução de custos:</strong> com a nuvem, você paga apenas pelo que usa, eliminando gastos com equipamentos físicos caros que ficam obsoletos.</p>
+  <p class="body-text fade-up"><strong>Trabalho remoto facilitado:</strong> seus colaboradores podem acessar sistemas e arquivos de casa ou de qualquer lugar, com total segurança.</p>
+  <p class="body-text fade-up"><strong>Continuidade do negócio:</strong> mesmo que aconteça algum imprevisto (falta de energia, desastre, falha de hardware), seus dados estão seguros e acessíveis.</p>
 
-  <h2 class="section-title">Dúvidas frequentes</h2>
-  <div class="faq-item">
-    <div class="faq-q">Minha empresa precisa migrar tudo para a nuvem de uma vez?</div>
-    <div class="faq-a">Não. Fazemos a migração gradualmente, de acordo com o ritmo e a necessidade da sua empresa, garantindo que nada pare durante o processo.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">A nuvem é segura para guardar dados sigilosos da empresa?</div>
-    <div class="faq-a">Sim. Os grandes provedores de nuvem (AWS, Azure, Google) oferecem segurança de nível bancário. Além disso, configuramos camadas extras de proteção específicas para o seu negócio.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">E se a internet cair? Perco acesso a tudo?</div>
-    <div class="faq-a">Para cenários críticos, existem soluções híbridas que mantêm uma cópia local dos dados essenciais, garantindo funcionamento mesmo sem internet.</div>
-  </div>
+  <h2 class="section-title fade-up">Dúvidas frequentes</h2>
+  <div class="faq-item fade-up"><div class="faq-q">Minha empresa precisa migrar tudo para a nuvem de uma vez?</div><div class="faq-a">Não. Fazemos a migração gradualmente, de acordo com o ritmo e a necessidade da sua empresa, garantindo que nada pare durante o processo.</div></div>
+  <div class="faq-item fade-up"><div class="faq-q">A nuvem é segura para guardar dados sigilosos da empresa?</div><div class="faq-a">Sim. Os grandes provedores de nuvem (AWS, Azure, Google) oferecem segurança de nível bancário. Além disso, configuramos camadas extras de proteção específicas para o seu negócio.</div></div>
+  <div class="faq-item fade-up"><div class="faq-q">E se a internet cair? Perco acesso a tudo?</div><div class="faq-a">Para cenários críticos, existem soluções híbridas que mantêm uma cópia local dos dados essenciais, garantindo funcionamento mesmo sem internet.</div></div>
 
-  <div class="cta-box">
+  <div class="cta-box fade-up">
     <h2>Pronto para modernizar sua infraestrutura?</h2>
     <p>Fale com nossa equipe e descubra a solução ideal para o tamanho e as necessidades da sua empresa.</p>
     <a href="index.html#contato" class="cta-btn">Fale com a gente</a>
   </div>
-
 </div>
 
-<footer>© 2025 ITAVIM Tecnologia. Todos os direitos reservados.</footer>
+<footer>© <span id="year"></span> <span>ITAVIM Tecnologia</span>. Todos os direitos reservados.</footer>
 <script>
+document.getElementById('year').textContent=new Date().getFullYear();
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});
+const observer=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);});},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
 const hamburger=document.getElementById('hamburger');
 const drawer=document.getElementById('drawer');
 const drawerBackdrop=document.getElementById('drawer-backdrop');
