@@ -310,6 +310,7 @@ section{padding:100px 6%;}
 /* ─── SERVICES ─── */
 .services{background:var(--bg);}
 .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+.services-grid .service-card:last-child:nth-child(odd){grid-column:1/-1;max-width:calc(50% - 0.6rem);margin:0 auto;}
 .service-card{
   background:var(--bg2);border:1px solid var(--border);
   border-radius:14px;padding:2.2rem;
@@ -628,6 +629,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
       <a href="consultoria-ti.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:#22c55e;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Consultoria em TI</a>
       <a href="ti-advocacia.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:var(--cyan);margin-right:8px;border-radius:1px;flex-shrink:0;"></span>TI para Advocacia</a>
       <a href="cftv-ip.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:#22c55e;margin-right:8px;border-radius:1px;flex-shrink:0;"></span>CFTV IP</a>
+      <a href="desenvolvimento-web.html" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()" style="background:rgba(0,210,230,.04);font-size:.85rem;padding:.75rem 1.4rem;display:flex;align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:var(--cyan);margin-right:8px;border-radius:1px;flex-shrink:0;"></span>Desenvolvimento Web</a>
     </div>
   </nav>
   <div class="drawer-foot">
@@ -656,6 +658,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
         <a href="consultoria-ti.html" target="_blank" rel="noopener noreferrer"><span class="dd-dot" style="background:#22c55e;"></span>Consultoria em TI</a>
         <a href="ti-advocacia.html" target="_blank" rel="noopener noreferrer"><span class="dd-dot" style="background:#00d2e6;"></span>TI para Advocacia</a>
         <a href="cftv-ip.html" target="_blank" rel="noopener noreferrer"><span class="dd-dot" style="background:#22c55e;"></span>CFTV IP</a>
+        <a href="desenvolvimento-web.html" target="_blank" rel="noopener noreferrer"><span class="dd-dot" style="background:#00d2e6;"></span>Desenvolvimento Web</a>
       </div>
     </li>
   </ul>
@@ -696,7 +699,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
         <div class="stat-lbl">Suporte disponível</div>
       </div>
       <div>
-        <div class="stat-num">6<span class="accent">+</span></div>
+        <div class="stat-num">7<span class="accent">+</span></div>
         <div class="stat-lbl">Áreas de atuação</div>
       </div>
     </div>
@@ -720,12 +723,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
     <span class="ticker-item"><span>✦</span>Consultoria em TI</span>
     <span class="ticker-item"><span>✦</span>TI para Advocacia</span>
     <span class="ticker-item"><span>✦</span>CFTV IP</span>
+    <span class="ticker-item"><span>✦</span>Desenvolvimento Web</span>
     <span class="ticker-item"><span>✦</span>Suporte Técnico</span>
     <span class="ticker-item"><span>✦</span>Infraestrutura Cloud</span>
     <span class="ticker-item"><span>✦</span>Segurança da Informação</span>
     <span class="ticker-item"><span>✦</span>Consultoria em TI</span>
     <span class="ticker-item"><span>✦</span>TI para Advocacia</span>
     <span class="ticker-item"><span>✦</span>CFTV IP</span>
+    <span class="ticker-item"><span>✦</span>Desenvolvimento Web</span>
   </div>
 </div>
 
@@ -856,6 +861,18 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
         <span class="tag tag-g">Câmeras HD</span>
         <span class="tag tag-g">Acesso Remoto</span>
         <span class="tag tag-g">24h</span>
+      </div>
+    </a>
+    <a href="desenvolvimento-web.html" class="service-card fade-up">
+      <span class="service-num">07 — WEB</span>
+      <div class="service-icon">🌐</div>
+      <h3>Desenvolvimento <span class="accent">Web</span></h3>
+      <p>Sites, sistemas e lojas virtuais modernos, rápidos e sob medida. Da landing page ao sistema completo, entregamos presença digital com qualidade profissional.</p>
+      <div class="service-tags">
+        <span class="tag tag-c">Sites</span>
+        <span class="tag tag-c">E-commerce</span>
+        <span class="tag tag-c">Sistemas</span>
+        <span class="tag tag-c">SEO</span>
       </div>
     </a>
   </div>
@@ -1040,6 +1057,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
         <li><a href="#servicos">Segurança da Informação</a></li>
         <li><a href="#servicos">Infraestrutura e Cloud</a></li>
         <li><a href="#servicos">Consultoria em TI</a></li>
+        <li><a href="desenvolvimento-web.html">Desenvolvimento Web</a></li>
       </ul>
     </div>
     <div class="footer-col">

@@ -4,14 +4,14 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="icon" href="imagens/nuvem.png" type="image/png"/>
-<title>Suporte Técnico — ITAVIM Tecnologia</title>
+<title>Desenvolvimento Web — ITAVIM Tecnologia</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Barlow',sans-serif;color:#1a2535;background:#ffffff;}
 a{text-decoration:none;color:inherit;}
-:root{--accent:#0099b3;--accent-dim:rgba(0,153,179,.1);--accent-glow:rgba(0,153,179,.22);--bg:#ffffff;--bg2:#f4f8fd;--bg3:#e8f0fb;--border:rgba(0,0,0,.09);--text:#1a2535;--muted:rgba(26,37,53,.52);--dim:rgba(26,37,53,.72);}
+:root{--accent:#7c3aed;--accent-dim:rgba(124,58,237,.1);--accent-glow:rgba(124,58,237,.22);--bg:#ffffff;--bg2:#f4f8fd;--bg3:#e8f0fb;--border:rgba(0,0,0,.09);--text:#1a2535;--muted:rgba(26,37,53,.52);--dim:rgba(26,37,53,.72);}
 ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--accent-dim);border-radius:3px;}
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}.fade-up.visible{opacity:1;transform:none;}
 #nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:88px;background:transparent;transition:background .35s,border-color .35s;border-bottom:1px solid transparent;}
@@ -61,11 +61,15 @@ a{text-decoration:none;color:inherit;}
 .section-title:first-of-type{margin-top:0;}
 p.body-text{color:var(--dim);font-size:.97rem;line-height:1.85;margin-bottom:1rem;font-weight:300;}
 p.body-text strong{color:var(--text);font-weight:600;}
+.steps{margin:1.5rem 0;}
+.step{display:flex;gap:1.2rem;margin-bottom:1.5rem;align-items:flex-start;}
+.step-num{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.95rem;display:flex;align-items:center;justify-content:center;}
+.step-body h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.3px;text-transform:uppercase;color:var(--text);margin-bottom:.3rem;}
+.step-body p{font-size:.88rem;color:var(--muted);line-height:1.65;font-weight:300;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin:1.5rem 0;}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.3rem;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;}
 .card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity .2s;}
-.card:hover{border-color:var(--accent-glow);transform:translateY(-3px);}
-.card:hover::after{opacity:1;}
+.card:hover{border-color:var(--accent-glow);transform:translateY(-3px);}.card:hover::after{opacity:1;}
 .card-icon{font-size:1.8rem;margin-bottom:.7rem;}
 .card h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.3px;text-transform:uppercase;color:var(--text);margin-bottom:.5rem;}
 .card p{font-size:.85rem;color:var(--muted);line-height:1.65;font-weight:300;}
@@ -137,40 +141,45 @@ footer span{color:var(--accent);}
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-tag"><span class="hero-tag-dot"></span>Departamento</div>
-  <div class="hero-icon">🖥️</div>
-  <h1>Suporte Técnico</h1>
-  <p>Sua empresa funcionando sem interrupções. Quando algo dá errado com seus computadores ou sistemas, nossa equipe resolve — rápido e sem complicação.</p>
+  <div class="hero-icon">🌐</div>
+  <h1>Desenvolvimento Web</h1>
+  <p>Sites e sistemas web modernos, rápidos e sob medida para o seu negócio. Da landing page ao sistema completo, entregamos presença digital com qualidade profissional.</p>
 </section>
 
 <div class="content">
-  <h2 class="section-title fade-up">O que é Suporte Técnico?</h2>
-  <p class="body-text fade-up">Imagine que o computador de um funcionário parou de funcionar no meio do expediente, a impressora não imprime ou o sistema que sua empresa usa para emitir notas fiscais deu erro. Esses são exatamente os momentos em que o Suporte Técnico entra em ação.</p>
-  <p class="body-text fade-up">É o serviço responsável por identificar, diagnosticar e resolver qualquer problema relacionado à tecnologia dentro da sua empresa — seja em computadores, notebooks, impressoras, redes de internet ou softwares.</p>
+  <h2 class="section-title fade-up">O que é Desenvolvimento Web?</h2>
+  <p class="body-text fade-up">Desenvolvimento web é a criação de sites, portais e sistemas que funcionam pelo navegador. Vai desde uma página institucional simples até plataformas complexas com login, cadastros, painéis administrativos e integrações com outros sistemas.</p>
+  <p class="body-text fade-up">Na ITAVIM, desenvolvemos soluções web pensadas para o seu negócio: <strong>rápidas, seguras e fáceis de usar</strong>. Trabalhamos com tecnologias modernas e entregamos projetos que geram resultado real, seja atraindo mais clientes ou automatizando processos internos.</p>
 
-  <h2 class="section-title fade-up">O que fazemos por você</h2>
-  <div class="cards">
-    <div class="card fade-up"><div class="card-icon">💻</div><h3>Computadores e Notebooks</h3><p>Manutenção, limpeza, formatação e configuração de máquinas para que rodem rápido e sem travamentos.</p></div>
-    <div class="card fade-up"><div class="card-icon">🖨️</div><h3>Impressoras e Periféricos</h3><p>Instalação e reparo de impressoras, scanners, teclados, mouses e outros equipamentos do dia a dia.</p></div>
-    <div class="card fade-up"><div class="card-icon">🌐</div><h3>Redes e Internet</h3><p>Diagnóstico de lentidão, queda de conexão, configuração de roteadores e redes wi-fi corporativas.</p></div>
-    <div class="card fade-up"><div class="card-icon">📦</div><h3>Softwares e Sistemas</h3><p>Instalação, atualização e resolução de erros em programas e sistemas utilizados pela sua empresa.</p></div>
-    <div class="card fade-up"><div class="card-icon">🏠</div><h3>Atendimento Remoto</h3><p>Muitos problemas são resolvidos à distância, sem precisar esperar um técnico chegar ao local.</p></div>
-    <div class="card fade-up"><div class="card-icon">🔧</div><h3>Atendimento Presencial</h3><p>Quando necessário, nosso técnico vai até você para resolver o problema com agilidade e cuidado.</p></div>
+  <h2 class="section-title fade-up">Como funciona o processo</h2>
+  <div class="steps">
+    <div class="step fade-up"><div class="step-num">1</div><div class="step-body"><h3>Briefing e Levantamento</h3><p>Entendemos o seu objetivo, público-alvo e necessidades. Definimos juntos o escopo do projeto, funcionalidades e prazo de entrega.</p></div></div>
+    <div class="step fade-up"><div class="step-num">2</div><div class="step-body"><h3>Protótipo e Layout</h3><p>Criamos o layout visual do site ou sistema antes de codar. Você aprova a aparência e a estrutura das páginas antes de qualquer linha de código.</p></div></div>
+    <div class="step fade-up"><div class="step-num">3</div><div class="step-body"><h3>Desenvolvimento</h3><p>Codificamos o projeto com as melhores práticas: código limpo, responsivo para mobile, otimizado para velocidade e preparado para SEO.</p></div></div>
+    <div class="step fade-up"><div class="step-num">4</div><div class="step-body"><h3>Testes e Publicação</h3><p>Testamos em diferentes dispositivos e navegadores antes de publicar. Após aprovação, fazemos o deploy e entregamos tudo funcionando no ar.</p></div></div>
+    <div class="step fade-up"><div class="step-num">5</div><div class="step-body"><h3>Suporte Pós-entrega</h3><p>Continuamos ao seu lado após a publicação para ajustes, atualizações de conteúdo e evolução do projeto conforme o crescimento do negócio.</p></div></div>
   </div>
 
-  <h2 class="section-title fade-up">Por que sua empresa precisa disso?</h2>
-  <p class="body-text fade-up">Cada hora que um funcionário fica parado por causa de um problema de TI é dinheiro perdido. Com um suporte técnico de confiança, você garante que a sua operação não para — e que qualquer imprevisto tecnológico seja resolvido no menor tempo possível.</p>
-  <p class="body-text fade-up">Além disso, um suporte preventivo (que cuida dos equipamentos antes de quebrarem) evita surpresas desagradáveis e prolongam a vida útil dos seus dispositivos.</p>
+  <h2 class="section-title fade-up">O que desenvolvemos</h2>
+  <div class="cards">
+    <div class="card fade-up"><div class="card-icon">🏢</div><h3>Sites Institucionais</h3><p>Páginas profissionais que apresentam sua empresa, serviços e contato. Impressiona clientes e transmite credibilidade no ambiente digital.</p></div>
+    <div class="card fade-up"><div class="card-icon">🛍️</div><h3>Lojas Virtuais</h3><p>E-commerces completos com catálogo de produtos, carrinho de compras, pagamento online e painel de gestão de pedidos.</p></div>
+    <div class="card fade-up"><div class="card-icon">⚙️</div><h3>Sistemas Web</h3><p>Plataformas personalizadas com login, cadastros, relatórios e automações que substituem planilhas e processos manuais.</p></div>
+    <div class="card fade-up"><div class="card-icon">📱</div><h3>Landing Pages</h3><p>Páginas focadas em conversão para campanhas, captação de leads ou lançamento de produtos. Design direto e chamadas para ação eficientes.</p></div>
+    <div class="card fade-up"><div class="card-icon">🔗</div><h3>Integrações de API</h3><p>Conectamos seu site a sistemas externos como WhatsApp, CRMs, ERPs, gateways de pagamento e outras ferramentas que você já usa.</p></div>
+    <div class="card fade-up"><div class="card-icon">🚀</div><h3>Otimização e SEO</h3><p>Melhoramos a velocidade, acessibilidade e posicionamento nos buscadores de sites já existentes para atrair mais visitantes organicamente.</p></div>
+  </div>
 
   <h2 class="section-title fade-up">Dúvidas frequentes</h2>
-  <div class="faq-item fade-up"><div class="faq-q">Quanto tempo leva para resolver um problema?</div><div class="faq-a">Depende da complexidade, mas muitos problemas são resolvidos no mesmo dia — e vários à distância, em minutos, sem precisar aguardar visita técnica.</div></div>
-  <div class="faq-item fade-up"><div class="faq-q">Preciso ter contrato para chamar o suporte?</div><div class="faq-a">Oferecemos tanto atendimentos avulsos quanto planos mensais de suporte. O contrato garante prioridade no atendimento e valores mais acessíveis.</div></div>
-  <div class="faq-item fade-up"><div class="faq-q">Vocês atendem fora do horário comercial?</div><div class="faq-a">Sim. Para clientes com plano de suporte, oferecemos atendimento estendido para emergências que não podem esperar.</div></div>
-  <div class="faq-item fade-up"><div class="faq-q">Minha empresa é pequena. Vale a pena ter suporte técnico?</div><div class="faq-a">Sim! Empresas pequenas são ainda mais impactadas por paradas inesperadas, pois cada funcionário representa uma parte significativa da operação.</div></div>
+  <div class="faq-item fade-up"><div class="faq-q">Quanto tempo leva para ter um site pronto?</div><div class="faq-a">Depende do projeto. Um site institucional simples pode ficar pronto em 1 a 2 semanas. Sistemas mais complexos têm prazo estimado na fase de briefing, sempre com transparência sobre cada etapa.</div></div>
+  <div class="faq-item fade-up"><div class="faq-q">Vou conseguir atualizar o site sozinho depois?</div><div class="faq-a">Sim. Para projetos com necessidade de atualização frequente, entregamos com painel administrativo simples e intuitivo. Se preferir, a ITAVIM também pode fazer as manutenções para você.</div></div>
+  <div class="faq-item fade-up"><div class="faq-q">O site funciona bem no celular?</div><div class="faq-a">Todos os nossos projetos são desenvolvidos com design responsivo, adaptando-se perfeitamente a smartphones, tablets e computadores. Isso também melhora seu posicionamento no Google.</div></div>
+  <div class="faq-item fade-up"><div class="faq-q">Vocês fazem manutenção e hospedagem também?</div><div class="faq-a">Sim. Oferecemos planos de manutenção mensal e auxiliamos na contratação e configuração de hospedagem, domínio e certificado SSL. Você não precisa entender de infraestrutura para ter um site no ar.</div></div>
 
   <div class="cta-box fade-up">
-    <h2>Precisa de suporte agora?</h2>
-    <p>Nossa equipe está pronta para ajudar. Entre em contato e resolva seu problema hoje.</p>
-    <a href="index.html#contato" class="cta-btn">Fale com a gente</a>
+    <h2>Pronto para ter presença digital de verdade?</h2>
+    <p>Fale com a nossa equipe e receba uma proposta personalizada para o seu projeto web.</p>
+    <a href="index.html#contato" class="cta-btn">Solicitar proposta</a>
   </div>
 </div>
 
