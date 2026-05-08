@@ -12,16 +12,16 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --bg:#ffffff;
-  --bg2:#f4f8fd;
-  --bg3:#e8f0fb;
+  --bg2:#f5f9f4;
+  --bg3:#eaf4e8;
   --border:rgba(0,0,0,0.09);
-  --border-h:rgba(0,175,196,0.35);
-  --cyan:#0099b3;
-  --cyan-dim:rgba(0,153,179,0.1);
-  --cyan-glow:rgba(0,153,179,0.22);
-  --green:#16a34a;
-  --green-dim:rgba(22,163,74,0.1);
-  --blue:#2563eb;
+  --border-h:rgba(101,187,69,0.35);
+  --cyan:#65BB45;
+  --cyan-dim:rgba(101,187,69,0.1);
+  --cyan-glow:rgba(101,187,69,0.22);
+  --green:#1B5EA8;
+  --green-dim:rgba(27,94,168,0.1);
+  --blue:#1B5EA8;
   --text:#1a2535;
   --muted:rgba(26,37,53,0.52);
   --dim:rgba(26,37,53,0.72);
@@ -135,8 +135,8 @@ body{font-family:'Barlow',sans-serif;color:var(--text);background:var(--bg);over
 .hero-content{position:relative;z-index:2;}
 .hero-badge{
   display:inline-flex;align-items:center;gap:.55rem;
-  background:rgba(0,153,179,.1);border:1px solid rgba(0,153,179,.3);
-  color:var(--cyan);font-size:.78rem;font-weight:600;letter-spacing:1.5px;
+  background:rgba(27,94,168,.08);border:1px solid rgba(27,94,168,.25);
+  color:var(--blue);font-size:.78rem;font-weight:600;letter-spacing:1.5px;
   text-transform:uppercase;padding:.4rem 1rem;border-radius:30px;
   margin-bottom:1.8rem;
 }
@@ -154,7 +154,7 @@ body{font-family:'Barlow',sans-serif;color:var(--text);background:var(--bg);over
   text-transform:uppercase;
 }
 .hero h1 .line2{
-  color:var(--cyan);
+  color:var(--blue);
 }
 .hero-desc{
   color:var(--dim);font-size:1rem;line-height:1.8;
@@ -245,7 +245,7 @@ body{font-family:'Barlow',sans-serif;color:var(--text);background:var(--bg);over
 section{padding:100px 6%;}
 .sec-tag{
   font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;
-  color:var(--cyan);letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;
   margin-bottom:.9rem;display:block;
 }
 .sec-title{
@@ -254,6 +254,7 @@ section{padding:100px 6%;}
   color:var(--text);letter-spacing:.5px;margin-bottom:1rem;
 }
 .sec-title .accent{color:var(--cyan);}
+.accent{color:var(--cyan);}
 .sec-sub{color:var(--dim);font-size:1rem;line-height:1.8;font-weight:300;max-width:520px;}
 .sec-head{margin-bottom:4rem;}
 .sec-head.center{text-align:center;}
@@ -329,7 +330,7 @@ section{padding:100px 6%;}
 .service-card:hover::before{transform:scaleX(1);}
 .service-num{
   font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;
-  color:var(--cyan);letter-spacing:2px;margin-bottom:1.2rem;display:block;opacity:.7;
+  color:var(--blue);letter-spacing:2px;margin-bottom:1.2rem;display:block;opacity:.8;
 }
 .service-icon{
   width:50px;height:50px;border-radius:12px;
@@ -367,7 +368,7 @@ section{padding:100px 6%;}
 .why-card:hover{border-color:var(--border-h);transform:translateY(-3px);}
 .why-num{
   font-family:'JetBrains Mono',monospace;font-weight:600;font-size:2.6rem;
-  color:rgba(0,153,179,.2);line-height:1;margin-bottom:1rem;
+  color:rgba(27,94,168,.25);line-height:1;margin-bottom:1rem;
 }
 .why-card h4{
   font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;
@@ -381,7 +382,7 @@ section{padding:100px 6%;}
 }
 .why-strip-icon{font-size:1.6rem;flex-shrink:0;}
 .why-strip p{color:var(--dim);font-size:.93rem;line-height:1.65;font-weight:300;}
-.why-strip strong{color:var(--green);font-weight:600;}
+.why-strip strong{color:var(--cyan);font-weight:600;}
 
 /* ─── CONTACT ─── */
 .contact{background:var(--bg);}
@@ -499,7 +500,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
   color:var(--text);text-transform:uppercase;
 }
 .footer-brand .logo-sub{
-  font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--cyan);
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--blue);
   font-weight:600;letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:1.2rem;
 }
 .footer-brand p{color:var(--muted);font-size:.85rem;line-height:1.75;font-weight:300;}
@@ -673,13 +674,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
       Tecnologia que transforma negócios
     </div>
     <h1>
-      Soluções em TI<br>
+      <span class="accent">Soluções</span> em TI<br>
       <span class="line2">Para o seu<br>Crescimento</span>
     </h1>
     <p class="hero-desc">
       A ITAVIM Tecnologia oferece suporte técnico, segurança da informação,
       infraestrutura em cloud e consultoria especializada para empresas que
-      buscam eficiência e confiabilidade no mundo digital.
+      buscam <span class="accent">eficiência</span> e <span class="accent">confiabilidade</span> no mundo digital.
     </p>
     <div class="hero-actions">
       <a href="#servicos" class="btn-primary">Nossos Serviços</a>
@@ -758,14 +759,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
       <span class="sec-tag">Sobre a ITAVIM</span>
       <h2 class="sec-title">Quem <span class="accent">somos?</span></h2>
       <p>
-        Somos uma empresa de tecnologia fundada por três sócios apaixonados por inovação,
+        Somos uma empresa de tecnologia fundada por três sócios apaixonados por <span class="accent">inovação</span>,
         comprometidos em oferecer soluções tecnológicas de alta qualidade para empresas
-        que querem crescer com segurança e eficiência.
+        que querem crescer com <span class="accent">segurança</span> e eficiência.
       </p>
       <h3 class="sec-title" style="font-size:clamp(1.5rem,2.5vw,2rem);margin-top:1rem;"><span class="accent">O que nos move!</span></h3>
       <p>
-        Nossa missão é ser o parceiro tecnológico de confiança dos nossos clientes,
-        entregando serviços personalizados com agilidade, profissionalismo e
+        Nossa missão é ser o <span class="accent">parceiro tecnológico</span> de confiança dos nossos clientes,
+        entregando serviços personalizados com <span class="accent">agilidade</span>, profissionalismo e
         transparência em cada etapa do processo.
       </p>
       <ul class="about-list">
@@ -784,13 +785,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
   <div class="sec-head center fade-up">
     <span class="sec-tag">O que fazemos</span>
     <h2 class="sec-title">Nossos <span class="accent">Serviços</span></h2>
-    <p class="sec-sub">Soluções completas em tecnologia para manter sua empresa segura, conectada e sempre funcionando.</p>
+    <p class="sec-sub">Soluções completas em tecnologia para manter sua empresa <span class="accent">segura, conectada</span> e sempre funcionando.</p>
   </div>
   <div class="services-grid">
     <a href="suporte-tecnico.html" class="service-card fade-up">
       <span class="service-num">01 — SUPORTE</span>
       <div class="service-icon">🖥️</div>
-      <h3>Suporte Técnico</h3>
+      <h3>Suporte <span class="accent">Técnico</span></h3>
       <p>Atendimento ágil e eficiente para resolver problemas de hardware, software e redes. Equipe disponível para garantir que sua operação não pare.</p>
       <div class="service-tags">
         <span class="tag tag-c">Helpdesk</span>
@@ -802,7 +803,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
     <a href="infraestrutura-cloud.html" class="service-card fade-up">
       <span class="service-num">02 — CLOUD</span>
       <div class="service-icon">☁️</div>
-      <h3>Infraestrutura e Cloud</h3>
+      <h3>Infraestrutura e <span class="accent">Cloud</span></h3>
       <p>Modernize sua infraestrutura com soluções em nuvem robustas e escaláveis. Redução de custos, alta disponibilidade e performance superior.</p>
       <div class="service-tags">
         <span class="tag tag-g">AWS</span>
@@ -814,7 +815,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
     <a href="seguranca-informacao.html" class="service-card fade-up">
       <span class="service-num">03 — SEGURANÇA</span>
       <div class="service-icon">🔒</div>
-      <h3>Segurança da Informação</h3>
+      <h3>Segurança da <span class="accent">Informação</span></h3>
       <p>Proteção completa para os dados e sistemas da sua empresa. Implementamos políticas, ferramentas e monitoramento para blindar seu negócio.</p>
       <div class="service-tags">
         <span class="tag tag-c">Firewall</span>
@@ -826,7 +827,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
     <a href="consultoria-ti.html" class="service-card fade-up">
       <span class="service-num">04 — CONSULTORIA</span>
       <div class="service-icon">💼</div>
-      <h3>Consultoria em TI</h3>
+      <h3>Consultoria em <span class="accent">TI</span></h3>
       <p>Orientação estratégica para tomada de decisões tecnológicas. Mapeamos sua infraestrutura e indicamos o melhor caminho para seu negócio.</p>
       <div class="service-tags">
         <span class="tag tag-g">Planejamento</span>
@@ -837,7 +838,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
     <a href="ti-advocacia.html" class="service-card fade-up">
       <span class="service-num">05 — ADVOCACIA</span>
       <div class="service-icon">⚖️</div>
-      <h3>TI para Advocacia</h3>
+      <h3><span class="accent">TI</span> para Advocacia</h3>
       <p>Suporte tecnológico especializado para escritórios de advocacia, garantindo segurança, eficiência e produtividade no ambiente jurídico.</p>
       <div class="service-tags">
         <span class="tag tag-c">PJE</span>
@@ -849,7 +850,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
     <a href="cftv-ip.html" class="service-card fade-up">
       <span class="service-num">06 — CFTV</span>
       <div class="service-icon">📹</div>
-      <h3>CFTV IP</h3>
+      <h3><span class="accent">CFTV</span> IP</h3>
       <p>Monitoramento inteligente com câmeras de alta definição e acesso remoto. Segurança avançada para empresas e residências, 24 horas por dia.</p>
       <div class="service-tags">
         <span class="tag tag-g">Câmeras HD</span>
@@ -866,37 +867,37 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
     <div class="sec-head center fade-up">
       <span class="sec-tag">Por que nos escolher</span>
       <h2 class="sec-title">Nossos <span class="accent">Diferenciais</span></h2>
-      <p class="sec-sub">Veja o que faz da ITAVIM Tecnologia a escolha certa para sua empresa.</p>
+      <p class="sec-sub">Veja o que faz da ITAVIM Tecnologia a <span class="accent">escolha certa</span> para sua empresa.</p>
     </div>
     <div class="why-grid">
       <div class="why-card fade-up">
         <div class="why-num">01</div>
-        <h4>Direto e Transparente</h4>
+        <h4>Direto e <span class="accent">Transparente</span></h4>
         <p>Tecnologia para agilizar, pessoas para resolver. Você começa com o assistente virtual e conta com especialistas sempre que precisar.</p>
       </div>
       <div class="why-card fade-up">
         <div class="why-num">02</div>
-        <h4>Agilidade na Resolução</h4>
+        <h4><span class="accent">Agilidade</span> na Resolução</h4>
         <p>Tempo de inatividade é prejuízo. Nossa equipe age rapidamente para identificar e resolver problemas antes que impactem sua operação.</p>
       </div>
       <div class="why-card fade-up">
         <div class="why-num">03</div>
-        <h4>Soluções Sob Medida</h4>
+        <h4>Soluções <span class="accent">Sob Medida</span></h4>
         <p>Cada empresa tem necessidades únicas. Desenvolvemos estratégias personalizadas que se encaixam no seu orçamento e objetivos.</p>
       </div>
       <div class="why-card fade-up">
         <div class="why-num">04</div>
-        <h4>Tecnologia Atualizada</h4>
+        <h4>Tecnologia <span class="accent">Atualizada</span></h4>
         <p>Trabalhamos com as ferramentas mais modernas e seguras do mercado, garantindo que seu negócio esteja sempre à frente.</p>
       </div>
       <div class="why-card fade-up">
         <div class="why-num">05</div>
-        <h4>Transparência Total</h4>
+        <h4><span class="accent">Transparência</span> Total</h4>
         <p>Relatórios claros, comunicação direta e sem letras miúdas. Você sabe exatamente o que está contratando e o resultado esperado.</p>
       </div>
       <div class="why-card fade-up">
         <div class="why-num">06</div>
-        <h4>Parceria de Longo Prazo</h4>
+        <h4>Parceria de <span class="accent">Longo Prazo</span></h4>
         <p>Não somos apenas prestadores — somos parceiros no crescimento do seu negócio, comprometidos com seus resultados no longo prazo.</p>
       </div>
     </div>
@@ -915,7 +916,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
       <h2 class="sec-title">Vamos conversar sobre o seu <span class="accent">projeto?</span></h2>
       <p>
         Estamos prontos para entender as necessidades da sua empresa e apresentar
-        a solução ideal em tecnologia. Entre em contato e um de nossos especialistas
+        a <span class="accent">solução ideal</span> em tecnologia. Entre em contato e um de nossos especialistas
         retornará em breve.
       </p>
       <div class="contact-items">
