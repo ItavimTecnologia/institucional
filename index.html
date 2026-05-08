@@ -343,7 +343,7 @@ section{padding:100px 6%;}
   font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;
   letter-spacing:.3px;color:var(--text);margin-bottom:.65rem;text-transform:uppercase;
 }
-.service-card p{color:var(--muted);font-size:.9rem;line-height:1.72;font-weight:300;}
+.service-card p{color:var(--muted);font-size:.9rem;line-height:1.72;font-weight:300;text-align:justify;}
 .service-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem;}
 .tag{
   font-size:.7rem;font-weight:600;padding:.28rem .65rem;border-radius:4px;
@@ -591,6 +591,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
   .mascote-img{max-width:300px;}
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem;}
   .services-grid,.why-grid{grid-template-columns:1fr;}
+  .services-grid .service-card:last-child:nth-child(odd){max-width:100%;grid-column:auto;}
   .footer-top{grid-template-columns:1fr 1fr;}
   .form-row{grid-template-columns:1fr;}
 }
@@ -687,7 +688,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 6% 
     </p>
     <div class="hero-actions">
       <a href="#servicos" class="btn-primary">Nossos Serviços</a>
-      <a href="#contato" class="btn-outline">Fale Conosco</a>
     </div>
     <div class="hero-stats">
       <div>
